@@ -26,6 +26,7 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     \
     ulimit -c unlimited && \
+    chmod 600 ~/.ssh/* && \
     git config --global user.name "freesense" && \
     git config --global user.email "freesense@126.com" && \
     apt-get clean && \
