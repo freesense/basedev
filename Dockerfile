@@ -10,6 +10,7 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     \
     apt-get upgrade -y && \
     apt-get install -y g++ && \
+    apt-get install -y autoconf automake libtool && \
     apt-get install -y build-essential && \
     apt-get install -y golang && \
     apt-get install -y python3 python3-pip && \

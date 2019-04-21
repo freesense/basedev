@@ -19,6 +19,7 @@
 ### 工具
 
 - gcc/g++/make...
+- autoconf/automake/libtool
 - python3-pip
 - openssh-server
 - man (C++11 supportted)
