@@ -1,4 +1,4 @@
-# 我的开发环境
+# 开发环境
 
 ## 启动指令
 
@@ -28,4 +28,4 @@
 - apt-get
 - vim
 - tmux
-- net-tools
+- net-tools (ping/ifconfig/netstat...)
