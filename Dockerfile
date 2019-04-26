@@ -1,6 +1,6 @@
 FROM ubuntu:latest
-ENV AUTHOR "freesense"
-ENV EMAIL "freesense@126.com"
+ENV AUTHOR freesense
+ENV EMAIL freesense@126.com
 
 RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     apt-get update && \
@@ -30,4 +30,4 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 22
-CMD sh -c 'chmod 600 ~/.ssh/* && git config --global user.name $AUTHOR && git config --global user.email $EMAIL && /usr/sbin/sshd -D'
+CMD sh -c 'chown -R root:999 ~/.ssh && chmod 600 ~/.ssh/* && git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && /usr/sbin/sshd -D'
