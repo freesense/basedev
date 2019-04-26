@@ -2,13 +2,13 @@
 
 ## 启动指令
 
-`sudo docker run -d -P --name=basedev seandev:0.0.1`
+`sudo docker run -d -P --name=basedev -v /path/to/.ssh:/root/.ssh -v /path/to/project:/root/project zinicl/basedev`
 
 ## 0.0.1
 
-- build时在当前目录下需存放git密钥对
 - openssh-server工作在端口22
 - `root`用户密码`888888`
+- **运行时需挂载ssh密钥文件目录**
 
 ### 语言
 
