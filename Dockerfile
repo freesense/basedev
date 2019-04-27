@@ -30,4 +30,4 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 22
-CMD sh -c 'chown -R root:999 ~/.ssh && chmod 600 ~/.ssh/* && git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && /usr/sbin/sshd -D'
+CMD sh -c 'git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && /usr/sbin/sshd -D'
