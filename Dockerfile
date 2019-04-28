@@ -12,7 +12,7 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     apt-get install -y autoconf automake libtool && \
     apt-get install -y build-essential && \
     apt-get install -y golang && \
-    apt-get install -y python3 python3-pip && \
+    apt-get install -y python3 python3-pip python3-dev && \
     apt-get install -y openssh-server git tmux vim net-tools inetutils-ping && \
     \
     wget ftp://gcc.gnu.org/pub/gcc/libstdc++/doxygen/libstdc++-man.4.4.0.tar.bz2 && \
