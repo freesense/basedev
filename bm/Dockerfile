@@ -26,7 +26,7 @@ RUN wget https://github.com/zeromq/libzmq/archive/v4.3.1.tar.gz && \
     \
     apt-get update && \
     apt-get install -y openssl libssl-dev && \
-    apt-get install -y opencc && \
+    apt-get install -y libopencc-dev && \
     \
     go get github.com/stevenyao/go-opencc && \
     go get github.com/garyburd/redigo/redis && \
