@@ -24,6 +24,11 @@ RUN wget https://github.com/zeromq/libzmq/archive/v4.3.1.tar.gz && \
     pip3 install pymysql && \
     pip3 install redis && \
     \
+    apt-get update && \
+    apt-get install -y openssl libssl-dev && \
+    apt-get install -y opencc && \
+    \
+    go get github.com/stevenyao/go-opencc && \
     go get github.com/garyburd/redigo/redis && \
     go get github.com/go-sql-driver/mysql && \
     go get github.com/larspensjo/config && \
@@ -32,10 +37,7 @@ RUN wget https://github.com/zeromq/libzmq/archive/v4.3.1.tar.gz && \
     go get github.com/json-iterator/go && \
     go get github.com/pebbe/zmq4 && \
     go get github.com/mattn/go-sqlite3 && \
-    go get github.com/stevenyao/go-opencc && \
     \
-    apt-get update && \
-    apt-get install -y openssl libssl-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/Downloads
 
