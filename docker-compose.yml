@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  basedev:
+    image: zinicl/basedev
+    ports:
+      - "33322:22"
+    volumes:
+      - sshkey-provider:/root/.ssh
+      - projects:/root/projects
+
+volumes:
+  sshkey-provider:
+  projects:
