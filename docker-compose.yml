@@ -7,9 +7,9 @@ services:
     ports:
       - "33322:22"
     volumes:
-      - sshkey-provider:/root/.ssh
+      - sshkey:/root/.ssh
       - projects:/root/projects
 
 volumes:
-  sshkey-provider:
+  sshkey:
   projects:
