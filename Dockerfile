@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 ENV AUTHOR freesense
 ENV EMAIL freesense@126.com
+ENV ROOTPWD 888888
 
 RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     apt-get update && \
@@ -21,7 +22,6 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     rm -rf libstdc++-man* && \
     \
     mkdir /var/run/sshd && \
-    echo 'root:888888' | chpasswd && \
     sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     \
@@ -30,4 +30,4 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 22
-CMD sh -c 'git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && /usr/sbin/sshd -D'
+CMD sh -c 'echo "root:$ROOTPWD" | chpasswd && git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && /usr/sbin/sshd -D'
