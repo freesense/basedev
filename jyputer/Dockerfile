@@ -1,7 +1,7 @@
 FROM python:alpine
 
-RUN apt-get upgrade -y && \
-    apt-get install -y libzmq3-dev && \
+RUN apk upgrade && \
+    apk add libzmq && \
     \
     python3 -m pip install --upgrade pip && \
     python3 -m pip install jupyter && \
