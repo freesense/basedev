@@ -1,13 +1,12 @@
-FROM python:alpine
+FROM alpine:edge
 
-RUN apk upgrade && \
-    apk add py3-zmq && \
+RUN apk update && \
+    apk add build-base libzmq musl-dev python3 python3-dev zeromq-dev && \
+    pip3 install pyzmq && \
+    pip3 install jupyter && \
     \
-    python3 -m pip install --upgrade pip && \
-    python3 -m pip install jupyter && \
-    \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache/pip v4.3.1.tar.gz
+    apk del build-base musl-dev python3-dev zeromq-dev && \
+    rm -rf /tmp/* /var/tmp/* ~/.cache/pip
 
 EXPOSE 8888
-CMD ["jupyter", "notebook"]
+CMD ["jupyter", "notebook", "--no-browser", "--NotebookApp.token=''"]
