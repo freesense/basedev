@@ -9,4 +9,4 @@ RUN apk update && \
     rm -rf /tmp/* /var/tmp/* ~/.cache/pip
 
 EXPOSE 8888
-CMD ["jupyter", "notebook", "--no-browser", "--port", "8888", "--NotebookApp.token=''"]
+CMD ["jupyter", "notebook", "--no-browser", "--NotebookApp.token=''"]
