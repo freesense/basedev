@@ -1,18 +1,7 @@
 FROM python:alpine
 
 RUN apk upgrade && \
-    apk add g++ autoconf automake libtool python3-dev && \
-    \
-    wget https://github.com/zeromq/libzmq/archive/v4.3.1.tar.gz && \
-    tar zxvf v4.3.1.tar.gz && \
-    cd libzmq-4.3.1 && \
-    ./autogen.sh && \
-    ./configure && \
-    make && \
-    make check && \
-    make install && \
-    make distclean && \
-    cd .. && \
+    apk add py3-zmq && \
     \
     python3 -m pip install --upgrade pip && \
     python3 -m pip install jupyter && \
