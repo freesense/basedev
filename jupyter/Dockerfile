@@ -1,6 +1,7 @@
 FROM continuumio/miniconda3
 
 RUN mkdir -p /opt/notebook && \
+    mkdir -p /root/.jupyter && \
     conda install jupyter -y --quiet
 
 EXPOSE 8888

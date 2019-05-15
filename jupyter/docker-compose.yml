@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+
+  server:
+    image: zinicl/jupyter
+    ports:
+      - "38888:8888"
