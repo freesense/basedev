@@ -67,6 +67,6 @@ EXPOSE 8443
 CMD sh -c 'echo "root:$ROOTPWD" | chpasswd && \
     git config --global user.name "$AUTHOR" && \
     git config --global user.email "$EMAIL" && \
-    jupyter notebook --notebook-dir=/opt/notebook --ip=0.0.0.0 --port=8888 --allow-root --no-browser --NotebookApp.token="" && \
+    nohup jupyter notebook --notebook-dir=/opt/notebook --ip=0.0.0.0 --port=8888 --allow-root --no-browser --NotebookApp.token="" > jupyter.log 2>&1 & && \
     nohup ./code-server1.1119-vsc1.33.1-linux-x64/code-server -P $CODEPWD > codesvr.log 2>&1 & && \
     /usr/sbin/sshd -D'
