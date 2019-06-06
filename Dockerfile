@@ -37,4 +37,4 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 22
-CMD sh -c 'echo "root:$ROOTPWD" | chpasswd && git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && /usr/sbin/sshd -D'
+CMD sh -c 'echo "root:$ROOTPWD" | chpasswd && git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && service docker start && /usr/sbin/sshd -D'
