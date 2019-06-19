@@ -7,10 +7,9 @@
 ## 0.0.1
 
 - openssh-server工作在端口22
-- `root`用户密码`888888`
+- `root`用户默认密码`888888`，可通过环境变量`ROOTPWD`修改
 - **运行时需挂载ssh密钥文件目录**
-    - linux环境可直接挂载~/.ssh目录 `-v /path/to/.ssh:/root/.ssh`
-    - windows环境可先创建数据卷容器，或先创建数据卷，再挂载到容器中 `--volumes-from` `--mount`
+- 宿主机本身为容器时，需使用**高权限**`--privileged`执行以启动`docker`服务
 
 ### 语言
 
@@ -31,3 +30,4 @@
 - vim
 - tmux
 - net-tools (ping/ifconfig/netstat...)
+- docker/docker-compose

@@ -15,6 +15,7 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     apt-get install -y golang && \
     apt-get install -y python3 python3-pip python3-dev && \
     apt-get install -y openssh-server git tmux vim net-tools inetutils-ping && \
+    apt-get install -y language-pack-zh-hans language-pack-zh-hans-base && \
     \
     wget ftp://gcc.gnu.org/pub/gcc/libstdc++/doxygen/libstdc++-man.4.4.0.tar.bz2 && \
     tar -jxvf libstdc++-man.4.4.0.tar.bz2 && \
@@ -27,6 +28,9 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
     apt-get update && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
+    \
+    curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+    chmod +x /usr/local/bin/docker-compose && \
     \
     mkdir /var/run/sshd && \
     sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
