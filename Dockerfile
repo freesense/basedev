@@ -36,6 +36,11 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     \
+    mkdir ~/go/bin && \
+    sed -i '$ a export LC_ALL="zh_CN.UTF-8"' ~/.bashrc && \
+    sed -i '$ a export LANG="zh_CN.UTF-8"' ~/.bashrc && \
+    sed -i '$ a export PATH=~/go/bin:$PATH' ~/.bashrc && \
+    \
     ulimit -c unlimited && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
