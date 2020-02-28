@@ -41,10 +41,11 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     sed -i '$ a export LANG="zh_CN.UTF-8"' ~/.bashrc && \
     sed -i '$ a export PATH=~/go/bin:$PATH' ~/.bashrc && \
     \
-    pip install jupyterlab && \
     ulimit -c unlimited && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN pip3 install jupyterlab
 
 EXPOSE 22
 EXPOSE 32900
