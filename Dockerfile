@@ -45,7 +45,9 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pip3 install jupyterlab
+RUN pip3 install jupyterlab && \
+    pip3 install pip -U && \
+    pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 EXPOSE 22
 EXPOSE 32900
