@@ -41,9 +41,11 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     sed -i '$ a export LANG="zh_CN.UTF-8"' ~/.bashrc && \
     sed -i '$ a export PATH=~/go/bin:$PATH' ~/.bashrc && \
     \
+    pip install jupyterlab && \
     ulimit -c unlimited && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 22
-CMD sh -c 'echo "root:$ROOTPWD" | chpasswd && git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && service docker start && /usr/sbin/sshd -D'
+EXPOSE 32900
+CMD sh -c 'echo "root:$ROOTPWD" | chpasswd && git config --global user.name "$AUTHOR" && git config --global user.email "$EMAIL" && service docker start && tmux new -d -s lab && tmux send "jupyter lab --ip=* --port=32900 --allow-root --notebook-dir=/root" C-m && /usr/sbin/sshd -D'
